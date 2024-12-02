@@ -12,6 +12,7 @@
 
 #ifndef HUMANB
 #define HUMANB
+#include<iostream>
 #include "Weapon.hpp"
 
 class HumanB{
@@ -19,7 +20,7 @@ class HumanB{
     std::string name;
     Weapon *weapon;
   public :
-    HumanB(std::string Name);
+    HumanB(const std::string Name);
     HumanB();
     void setWeapon(Weapon& newWeapon);
     void attack();

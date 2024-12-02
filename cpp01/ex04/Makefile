@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = fight
-SRC = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
+NAME = replace
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

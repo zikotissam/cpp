@@ -11,12 +11,10 @@
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+#include<iostream>
 
-    HumanA::HumanA(std::string Name, Weapon weapon){
-        HumanA::name = Name;
-        HumanA::weapon = weapon; 
-    }
+    HumanA::HumanA(std::string Name, Weapon& newWeapon): name(Name), weapon(newWeapon){}
 
     void HumanA::attack(){
-        std::cout<<HumanA::name<<"  attacks with their "<<HumanA::weapon.getType()<<std::endl;
+        std::cout<<name<<"  attacks with their "<<weapon.getType()<<std::endl;
     }

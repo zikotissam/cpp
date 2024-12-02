@@ -11,20 +11,18 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include<iostream>
 
     const std::string& Weapon::getType(){
-        return(Weapon::type);
+        return(type);
     }
 
-    void Weapon::setType(std::string Type){
-        Weapon::type = Type;
+    void Weapon::setType(const std::string &Type){
+        type = Type;
     }
 
-    Weapon::Weapon(std::string name){
-        Weapon::type = name;
-    }
+    Weapon::Weapon(const std::string& name) : type(name) {}
 
     Weapon::Weapon(){
         Weapon::type = "no weapon";
     }
-        

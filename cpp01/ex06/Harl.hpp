@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlakhdar <zlakhdar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 01:53:52 by zlakhdar          #+#    #+#             */
-/*   Updated: 2024/10/29 02:33:39 by zlakhdar         ###   ########.fr       */
+/*   Created: 2024/12/01 22:08:52 by zlakhdar          #+#    #+#             */
+/*   Updated: 2024/12/01 22:19:55 by zlakhdar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON
-#define WEAPON
-
 #include<iostream>
 
-class Weapon{
-  private :
-    std::string type;
-  public :
-    Weapon(const std::string &name);
-    Weapon();
-    const std::string& getType();
-    void setType(const std::string &Type);
+class Harl{
+    private:
+        void Debug(void);
+        void Info(void);
+        void Warning(void);
+        void Error(void);
+    public :
+        typedef void (Harl::*PointerToMember)(void);
+        void complain(std::string level);
 };
-#endif

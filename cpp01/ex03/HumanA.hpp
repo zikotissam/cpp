@@ -13,14 +13,14 @@
 #ifndef HUMANA
 #define HUMANA
 #include "Weapon.hpp"
+#include<iostream>
 
 class HumanA{
   private :
     std::string name;
-    Weapon weapon;
+    Weapon &weapon;
   public :
-    HumanA(std::string Name, Weapon newWeapon);
-    HumanA();
+    HumanA(std::string Name, Weapon& newWeapon);
     void attack();
 };
 #endif

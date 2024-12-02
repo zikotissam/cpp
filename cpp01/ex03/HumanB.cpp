@@ -11,15 +11,21 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
+#include "Weapon.hpp"
 
     HumanB::HumanB(std::string Name){
-        HumanB::name = Name; 
+        name = Name;
+        weapon = NULL;
     }
     HumanB::HumanB(){
-        HumanB::name = "uknown"; 
+        name = "uknown"; 
+        weapon = NULL;
     }
     void HumanB::attack(){
-        std::cout<<name<<"  attacks with their "<<weapon->getType()<<std::endl;
+        if(weapon)
+            std::cout<<name<<"  attacks with their "<<weapon->getType()<<std::endl;
+        else
+            std::cout<<name<<" have no weapon "<<std::endl;
     }
     void HumanB::setWeapon(Weapon& newWeapon) {
         weapon = &newWeapon;
