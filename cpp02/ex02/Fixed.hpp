@@ -14,6 +14,7 @@
 #ifndef FIXED
 #define FIXED
 #include <iostream>
+#include <cmath>
 class Fixed
 {
 	private:
@@ -36,10 +37,10 @@ class Fixed
 		bool operator>=(const Fixed &val)const;
 		bool operator==(const Fixed &val)const;
 		bool operator!=(const Fixed &val)const;
-		int operator+(const Fixed &val);
-		int operator-(const Fixed &val);
-		int operator*(const Fixed &val);
-		int &operator/(const Fixed &val);
+		Fixed operator+(const Fixed &val);
+		Fixed operator-(const Fixed &val);
+		Fixed operator*(const Fixed &val);
+		Fixed operator/(const Fixed &val);
     	Fixed operator++(int);
     	Fixed operator++();
 		Fixed operator--(int);

@@ -73,16 +73,18 @@ bool Fixed::operator==(const Fixed &val)const{
 bool Fixed::operator!=(const Fixed &val)const{
     return(this->getRawBits() == val.getRawBits());
 }
-int Fixed::operator+(const Fixed &val){
-    return(this->getRawBits() + val.getRawBits());
+Fixed Fixed::operator+(const Fixed &val){
+    return((float)(this->getRawBits() + val.getRawBits()) / (1 << _fract_bits));
 }
-int Fixed::operator-(const Fixed &val){
+Fixed Fixed::operator-(const Fixed &val){
     return(this->getRawBits() - val.getRawBits());
 }
-int Fixed::operator*(const Fixed &val){
-    return((this->getRawBits() * val.getRawBits()) / ((1 << _fract_bits) * (1 << _fract_bits)));
+Fixed Fixed::operator*(const Fixed &val){
+    return((float)((this->getRawBits() * val.getRawBits())) / ((1 << _fract_bits) * (1 << _fract_bits)));
 }
-
+Fixed Fixed::operator/(const Fixed &val){
+    return((float)this->getRawBits() / val.getRawBits());
+}
 Fixed Fixed::operator++()
 {
     ++(this->_fp_value);
