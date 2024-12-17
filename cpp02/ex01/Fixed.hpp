@@ -22,10 +22,13 @@ class Fixed
 
 	public:
 		Fixed();
+		Fixed(const int &integer);
+		Fixed(const float& floatN);
 		Fixed(const Fixed& copy);
 		~Fixed();
-		Fixed &operator=(const Fixed &src);
 		int getRawBits(void)const;
-		void setRawBits(int const raw);
+		float toFloat( void ) const;
+		int toInt( void ) const;
 };
+std::ostream &operator<<(std::ostream& os, const Fixed &my_class);
 #endif
