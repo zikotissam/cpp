@@ -50,6 +50,12 @@ std::ostream &operator<<(std::ostream &os, const Fixed &my_class){
     os <<my_class.toFloat();
     return os;
 }
+Fixed &Fixed::operator=(const Fixed &src){
+    if(this != &src)
+        this->_fp_value = src.getRawBits();
+    std::cout<<"Copy assignment operator called"<<std::endl;
+    return *this;
+}
 bool Fixed::&operator>(const Fixed &val){
     return(this->getRawBits() > val.getRawBits());
 }
