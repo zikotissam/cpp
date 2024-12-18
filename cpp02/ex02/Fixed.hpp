@@ -23,14 +23,14 @@ class Fixed
 
 	public:
 		Fixed();
+		~Fixed();
+		Fixed(const Fixed& copy);
+		Fixed &operator=(const Fixed &src);
 		Fixed(const int &integer);
 		Fixed(const float& floatN);
-		Fixed(const Fixed& copy);
-		~Fixed();
 		int getRawBits(void)const;
 		float toFloat( void ) const;
 		int toInt( void ) const;
-		Fixed &operator=(const Fixed &src);
 		bool operator>(const Fixed &val)const;
 		bool operator<(const Fixed &val)const;
 		bool operator<=(const Fixed &val)const;

@@ -12,7 +12,7 @@
 
 #include"Fixed.hpp"
 const int Fixed:: _fract_bits = 8;
-Fixed::Fixed(const int& integer): _fp_value(integer * (1 << _fract_bits))
+Fixed::Fixed(const int& integer): _fp_value(integer << _fract_bits)
 {
     std::cout<<"Int constructor called"<<std::endl;
 }
@@ -39,10 +39,10 @@ Fixed::Fixed(const Fixed& copy){
 
 
 float Fixed::toFloat( void ) const{
-    return(float(_fp_value) / (1 << _fract_bits));
+    return(_fp_value / float(1 << _fract_bits));
 }
 int Fixed::toInt( void )const{
-    return(_fp_value / (1 << _fract_bits));
+    return(_fp_value >>_fract_bits);
 }
 
 Fixed &Fixed::operator=(const Fixed &src){

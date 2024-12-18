@@ -12,7 +12,7 @@
 
 #include"Fixed.hpp"
 const int Fixed:: _fract_bits = 8;
-Fixed::Fixed(const int& integer): _fp_value(integer * (1 << _fract_bits))
+Fixed::Fixed(const int& integer): _fp_value(integer << _fract_bits)
 {
     //std::cout<<"Int constructor called"<<std::endl;
 }
@@ -38,7 +38,7 @@ int Fixed::getRawBits(void)const{
 }
 
 float Fixed::toFloat( void ) const{
-    return(float(_fp_value) / (1 << _fract_bits));
+    return((_fp_value) / (float)(1 << _fract_bits));
 }
 int Fixed::toInt( void )const{
     return(_fp_value / (1 << _fract_bits));
@@ -56,34 +56,40 @@ Fixed &Fixed::operator=(const Fixed &src){
     return *this;
 }
 bool Fixed::operator>(const Fixed &val)const{
-    return(this->getRawBits() > val.getRawBits());
+    return(_fp_value > val._fp_value);
 }
 bool Fixed::operator<(const Fixed &val)const{
-    return(this->getRawBits() < val.getRawBits());
+    return(_fp_value < val._fp_value);
 }
 bool Fixed::operator>=(const Fixed &val)const{
-    return(this->getRawBits() >= val.getRawBits());
+    return(_fp_value >= val._fp_value);
 }
 bool Fixed::operator<=(const Fixed &val)const{
-    return(this->getRawBits() <= val.getRawBits());
+    return(_fp_value <= val._fp_value);
 }
 bool Fixed::operator==(const Fixed &val)const{
-    return(this->getRawBits() == val.getRawBits());
+    return(_fp_value == val._fp_value);
 }
 bool Fixed::operator!=(const Fixed &val)const{
-    return(this->getRawBits() == val.getRawBits());
+    return(_fp_value == val._fp_value);
 }
 Fixed Fixed::operator+(const Fixed &val){
-    return((float)(this->getRawBits() + val.getRawBits()) / (1 << _fract_bits));
+    Fixed ret;
+    ret._fp_value = (_fp_value + val._fp_value);
+    return(ret);
 }
 Fixed Fixed::operator-(const Fixed &val){
-    return(this->getRawBits() - val.getRawBits());
+    Fixed ret;
+    ret._fp_value = _fp_value - val._fp_value;
+    return(ret);
 }
 Fixed Fixed::operator*(const Fixed &val){
-    return((float)((this->getRawBits() * val.getRawBits())) / ((1 << _fract_bits) * (1 << _fract_bits)));
+    Fixed ret;
+    ret._fp_value = (this->_fp_value * val._fp_value) >> _fract_bits ;
+    return ret;
 }
 Fixed Fixed::operator/(const Fixed &val){
-    return((float)this->getRawBits() / val.getRawBits());
+    return( _fp_value / (float)val._fp_value);
 }
 Fixed Fixed::operator++()
 {
@@ -101,7 +107,6 @@ Fixed  Fixed::operator++(int)
 
 Fixed Fixed::operator--()
 {
-    
     --(this->_fp_value);
     return *this; 
 }
