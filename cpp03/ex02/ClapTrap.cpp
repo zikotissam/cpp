@@ -1,7 +1,7 @@
 #include"ClapTrap.hpp"
-ClapTrap::ClapTrap():Name("Uknown"),HitPoints(10), Energy(10), AttackDamage(0) {std::cout<<"Default constructer Called ;)"<<std::endl;}
-ClapTrap::~ClapTrap(){std::cout<<"Destructer Called :("<<std::endl;}
-ClapTrap::ClapTrap(const std::string& Name):Name(Name),HitPoints(10), Energy(10), AttackDamage(0){std::cout<<"constructer Called :)"<<std::endl;}
+ClapTrap::ClapTrap():Name("Uknown"),HitPoints(10), Energy(10), AttackDamage(0) {std::cout<<"ClapTrap Default constructer Called ;)"<<std::endl;}
+ClapTrap::~ClapTrap(){std::cout<<"ClapTrap Destructer Called :("<<std::endl;}
+ClapTrap::ClapTrap(const std::string& Name):Name(Name),HitPoints(10), Energy(10), AttackDamage(0){std::cout<<"ClapTrap constructer Called :)"<<std::endl;}
 ClapTrap::ClapTrap(const ClapTrap& copy){*this = copy; std::cout<<"copy constructor Called :<O"<<std::endl;}
 ClapTrap &ClapTrap::operator=(const ClapTrap &src){
     if(this != &src)
