@@ -9,7 +9,7 @@ DiamondTrap::DiamondTrap(){
     AttackDamage = FragTrap::AttackDamage;
     std::cout<<"DiamondTrap Default constructer Called ;)"<<std::endl;
 }
-DiamondTrap::DiamondTrap(const std::string& name){
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name), ScavTrap(name){
     _Name = name;
     ClapTrap::Name += "_clap_name";
     HitPoints = FragTrap::HitPoints;
@@ -29,8 +29,7 @@ void DiamondTrap::whoAmI(){
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src){
     if(this != &src)
-    {
-        
+    { 
         this->Name = src.Name;
         this->HitPoints = src.HitPoints;
         this->Energy = src.Energy;
