@@ -1,5 +1,6 @@
 #include"ScavTrap.hpp"
 
+ScavTrap::ScavTrap(const ScavTrap& copy): ClapTrap(copy){*this = copy; std::cout<<"ScavTrap copy constructor Called :<O"<<std::endl;}
 ScavTrap::ScavTrap(){
     Name = "Uknown";
     HitPoints = 100;
@@ -29,4 +30,15 @@ void ScavTrap::attack(const std::string& target){
         std::cout<<"cant Attack beacause obviously im DEAAAAAAAAAAAAAAAD >:<"<<std::endl;
     else if(!Energy)
         std::cout<<"cant Attack no Energy :("<<std::endl;
+}
+ScavTrap &ScavTrap::operator=(const ScavTrap &src){
+    if(this != &src)
+    {
+        this->Name = src.Name;
+        this->HitPoints = src.HitPoints;
+        this->Energy = src.Energy;
+        this->AttackDamage = src.AttackDamage;
+    }
+    std::cout<<"Copy assignment operator Called >=<:O"<<std::endl;
+    return *this;
 }

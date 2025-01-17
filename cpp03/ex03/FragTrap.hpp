@@ -1,7 +1,7 @@
 #ifndef FRAGTRAP
 #define FRAGTRAP
 #include"ClapTrap.hpp"
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
     public :
         //Default constructor
         FragTrap();

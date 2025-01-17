@@ -30,7 +30,7 @@ void FragTrap::attack(const std::string& target){
     else if(!Energy)
         std::cout<<"cant Attack no Energy :("<<std::endl;
 }
-FragTrap::FragTrap(const FragTrap& copy): ClapTrap(copy){*this = copy; std::cout<<"FragTrap copy constructor Called :<O"<<std::endl;}
+FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy){*this = copy; std::cout<<"FragTrap copy constructor Called :<O"<<std::endl;}
 FragTrap &FragTrap::operator=(const FragTrap &src){
     if(this != &src)
     {
