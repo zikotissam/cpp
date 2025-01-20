@@ -3,12 +3,13 @@
 #include "Animal.hpp"
 
 class Dog : public Animal{
-    protected :
-        std::string _type;
     public :
     //default constructer
         Dog();
     
+    //destructer
+        ~Dog();
+
     //constructer
         Dog(const std::string &type);
 
@@ -19,7 +20,7 @@ class Dog : public Animal{
 		Dog &operator=(const Dog &src);
     
     //method
-    void makeSound();
+       void makeSound()const;
 };
 
 #endif

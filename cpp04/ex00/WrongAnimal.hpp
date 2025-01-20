@@ -1,30 +1,30 @@
-#ifndef ANIMAL
-#define ANIMAL
+#ifndef WRONGANIMAL
+#define WRONGANIMAL
 #include <iostream>
 #include <cmath>
 
-class Animal{
+class WrongAnimal{
     protected :
         std::string _type;
     public :
     //default constructer
-        Animal();
+        WrongAnimal();
     
     //destructer
-        virtual ~Animal();
+        ~WrongAnimal();
 
     //constructer
-        Animal(const std::string &type);
+        WrongAnimal(const std::string &type);
 
     //copy constructer
-        Animal(const Animal& copy);
+        WrongAnimal(const WrongAnimal& copy);
 
     //copy operator assignement
-		Animal &operator=(const Animal &src);
+		WrongAnimal &operator=(const WrongAnimal &src);
     
     //method
         std::string getType()const;
-       virtual void makeSound()const;
+        void makeSound()const;
 };
 
 #endif

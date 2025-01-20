@@ -2,12 +2,12 @@
 #define CAT
 #include "Animal.hpp"
 class Cat : public Animal{
-    protected :
-        std::string _type;
     public :
     //default constructer
         Cat();
-    
+
+    //destructer
+        ~Cat();
     //constructer
         Cat(const std::string &type);
 
@@ -18,7 +18,7 @@ class Cat : public Animal{
 		Cat &operator=(const Cat &src);
     
     //method
-        void makeSound();
+       void makeSound()const;
 };
 
 #endif
