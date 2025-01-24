@@ -1,6 +1,6 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-NAME = ClapTrap
+NAME = Brain
 SRC = Cat.cpp WrongCat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp main.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 
